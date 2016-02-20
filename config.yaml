@@ -1,9 +1,7 @@
-# /config/config.yaml
-
 library: /config/library.db
 directory: /music
 
-plugins: lastgenre fetchart
+plugins: lastgenre fetchart embedart lyrics scrub
 
 fetchart:
     cautious: yes
