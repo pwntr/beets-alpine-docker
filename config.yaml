@@ -3,4 +3,12 @@
 library: /config/library.db
 directory: /music
 
-plugins: lastgenre
+plugins: lastgenre fetchart
+
+fetchart:
+    cautious: yes
+    minwidth: 500
+    maxwidth: 500
+    enforce_ratio: yes
+    remote_priority: yes
+    sources: amazon coverart itunes albumart
