@@ -18,8 +18,9 @@ RUN pip install -U pip && \
     pip install beets && \
     pip install requests && \
     pip install discogs-client && \
-    pip install pylast
+    pip install pylast && \
+    pip install https://github.com/ocelma/python-itunes/archive/master.zip
 
 VOLUME /config /music /import
 	
-ENTRYPOINT ["beet", "-c", "/config/config.yaml"]
+ENTRYPOINT ["beet", "-c", "/config/config.yaml", "import", "/import"]
