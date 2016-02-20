@@ -1,7 +1,7 @@
 library: /config/library.db
 directory: /music
 
-plugins: lastgenre fetchart embedart lyrics scrub
+plugins: discogs lastgenre fetchart embedart lyrics scrub
 
 fetchart:
     cautious: yes
