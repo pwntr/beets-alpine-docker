@@ -7,12 +7,14 @@ RUN mkdir /config /music /import
 # update the base system
 RUN apk update && apk upgrade
 
-# install python 2, pip, GNU wget (replacing busybox' wget), and clear the cache afterwards
-RUN apk add python py-pip wget && rm -rf /var/cache/apk/*
+# install python 2, pip, GNU wget (replacing busybox' wget), imagemagick, and clear the cache afterwards
+RUN apk add python py-pip wget imagemagick && rm -rf /var/cache/apk/*
 
-# upgrade pip and install beets
-RUN yes | pip install -U pip \
-    yes | pip install beets
+# upgrade pip and install beets with some useful plugin requirements
+RUN pip install -U pip && \
+    pip install beets && \
+    pip install requests && \
+    pip install discogs-client
 
 VOLUME /config /music /import
 	
