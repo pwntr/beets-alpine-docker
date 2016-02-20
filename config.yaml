@@ -1,0 +1,6 @@
+# /config/config.yaml
+
+library: /config/library.db
+directory: /music
+
+plugins: lastgenre
