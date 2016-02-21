@@ -10,3 +10,4 @@ fetchart:
     enforce_ratio: yes
     remote_priority: yes
     sources: amazon coverart itunes albumart
+
