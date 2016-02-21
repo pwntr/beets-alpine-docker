@@ -4,6 +4,9 @@ MAINTAINER Peter Winter <peter@pwntr.com>
 # create dirs for the config, the music, and the music to be imported
 RUN mkdir /config /music /import
 
+# set the beets dir
+ENV BEETSDIR /config
+
 # copy the config
 COPY config.yaml /config/config.yaml
 
@@ -23,4 +26,7 @@ RUN pip install -U pip && \
 
 VOLUME /config /music /import
 	
-ENTRYPOINT ["beet", "-c", "/config/config.yaml", "import", "/import"]
+ENTRYPOINT ["beet"]
+
+# by default, import everything in the /import dir when starting this container
+CMD ["import", "/import"]
