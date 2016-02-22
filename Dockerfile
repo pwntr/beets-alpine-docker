@@ -14,15 +14,11 @@ COPY config.yaml /config/config.yaml
 RUN apk update && apk upgrade
 
 # install python 2, GNU wget (replacing busybox' wget), imagemagick, and clear the cache afterwards
-RUN apk add --update python py-pip wget imagemagick && rm -rf /var/cache/apk/*
+RUN apk add python py-pip wget imagemagick && rm -rf /var/cache/apk/*
 
 # upgrade pip and install beets with some useful plugins and requirements
 RUN pip install -U pip && \
-    pip install beets && \
-    pip install requests && \
-    pip install discogs-client && \
-    pip install pylast && \
-    pip install https://github.com/ocelma/python-itunes/archive/master.zip
+    pip install beets requests discogs-client pylast https://github.com/ocelma/python-itunes/archive/master.zip
 
 VOLUME /config /music /import
 	
