@@ -1,4 +1,3 @@
-library: /config/library.db
 directory: /music
 
 plugins: discogs lastgenre fetchart embedart lyrics scrub
