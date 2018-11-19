@@ -8,17 +8,14 @@ RUN mkdir /config /music /import
 ENV BEETSDIR /config
 
 # copy the config from the project folder into the container
-COPY config.yaml /config/config.yaml
+COPY config.yaml /config/
 
-# update the base system
-RUN apk update && apk upgrade
-
-# install python 2, GNU wget (replacing busybox' wget), imagemagick, and clear the cache afterwards
-RUN apk add python py-pip wget imagemagick && rm -rf /var/cache/apk/*
+# install python 3, GNU wget (replacing busybox' wget), imagemagick
+RUN apk add --no-cache python3 wget imagemagick
 
 # upgrade pip and install beets with some useful plugins and requirements
-RUN pip install -U pip && \
-    pip install beets requests discogs-client pylast https://github.com/ocelma/python-itunes/archive/master.zip
+RUN pip3 install --upgrade pip && \
+    pip3 install beets requests discogs-client pylast
 
 VOLUME /config /music /import
 

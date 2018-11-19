@@ -1,11 +1,10 @@
 directory: /music
 
-plugins: discogs lastgenre fetchart embedart lyrics scrub
+plugins: discogs lastgenre fetchart embedart lyrics fromfilename scrub
 
 fetchart:
     cautious: yes
     minwidth: 500
     maxwidth: 500
     enforce_ratio: yes
-    remote_priority: yes
-    sources: amazon coverart itunes albumart
+    sources: itunes amazon coverart albumart filesystem
